@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Joyería Palmera</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fuente Montserrat y Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -19,24 +20,29 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 20px 40px;
       border-bottom: 1px solid #eee;
+      text-align: center;
     }
 
     header h1 {
-      font-size: 28px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
       font-weight: 700;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+
+    nav {
+      margin-top: 10px;
     }
 
     nav a {
-      margin-left: 25px;
+      margin: 0 15px;
       text-decoration: none;
       color: #111;
       font-weight: 500;
+      font-size: 16px;
     }
 
     .hero {
@@ -121,12 +127,14 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 60px;
+      position: relative;
+      z-index: 1;
     }
 
     /* Estilos del carrito */
     .cart {
       position: fixed;
-      top: 20px;
+      bottom: 100px; /* más abajo para que no tape el contacto */
       right: 40px;
       background-color: #000;
       color: #fff;
@@ -135,12 +143,14 @@
       font-weight: bold;
       cursor: pointer;
       z-index: 1000;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>GABIGORDO JOYAS</h1>
+    <h1>PALMERA JOYAS</h1>
     <nav>
       <a href="#">Inicio</a>
       <a href="#productos">Productos</a>
@@ -159,61 +169,21 @@
   </section>
 
   <section class="products" id="productos">
+    <!-- productos aquí, igual que antes -->
+    <!-- ejemplo de producto: -->
     <div class="product">
-      <div class="product">
-  <img src="https://www.superaki.mx/cdn/shop/products/0000000000147.png?v=1634911468" alt="PAPA DURA">
-  <div class="product-info">
-    <h3>PAPA DURA</h3>
-    <p>Papa recien pelada perfecta.</p>
-  </div>
-</div>
-      
-      
+      <img src="https://images.unsplash.com/photo-1583001302150-d7ccf645e6f2?auto=format&fit=crop&w=1470&q=80" alt="PAPITA DORADITA" />
       <div class="product-info">
-        <h3>PAPA DURA</h3>
-        <p>Papa perfecta.</p>
+        <h3>PAPURRA DORADA</h3>
+        <p>TERRIBLE DISEÑO EN OROOO.</p>
       </div>
     </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1625512062327-d4121d6618ff?auto=format&fit=crop&w=1470&q=80" alt="Collar elegante">
-      <div class="product-info">
-        <h3>Collar Perla Negra</h3>
-        <p>Perla natural y cadena de plata.</p>
-      </div>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1600180758890-7768d240ba63?auto=format&fit=crop&w=1470&q=80" alt="Aros de plata">
-      <div class="product-info">
-        <h3>Aros Luna</h3>
-        <p>Plata 925 con detalles brillantes.</p>
-      </div>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1470&q=80" alt="Pulsera dorada">
-      <div class="product-info">
-        <h3>Pulsera Clásica</h3>
-        <p>Elegancia dorada para todos los días.</p>
-      </div>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1622435227936-bc6f7fc64906?auto=format&fit=crop&w=1470&q=80" alt="Anillo con piedra">
-      <div class="product-info">
-        <h3>Anillo Esmeralda</h3>
-        <p>Piedra natural en engarce de lujo.</p>
-      </div>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1540986601707-3c1aa498c5b3?auto=format&fit=crop&w=1470&q=80" alt="Collar doble cadena">
-      <div class="product-info">
-        <h3>Collar Doble Cadena</h3>
-        <p>Estilo moderno y versátil.</p>
-      </div>
-    </div>
+    <!-- más productos -->
   </section>
 
   <footer id="contacto">
     <p>&copy; 2025 Palmera Joyas. Todos los derechos reservados.</p>
-    <p>Instagram: @palmerajoyas | WhatsApp: +54 9 11 1234-5678</p>
+    <p>Instagram: @palmerajoyas | WhatsApp: +54 9 1135679728</p>
   </footer>
 </body>
 </html>
