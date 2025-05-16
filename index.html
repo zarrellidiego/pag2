@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Joyería Palmera</title>
-  <!-- Fuente Montserrat y Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DUZ JOYERÍA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
@@ -20,34 +19,37 @@
     }
 
     header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 20px 40px;
       border-bottom: 1px solid #eee;
-      text-align: center;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+
+    header.shrink h1 {
+      font-size: 20px;
     }
 
     header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 48px;
+      font-size: 36px;
       font-weight: 700;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
+      margin: auto;
+      text-align: center;
     }
 
     nav {
-      margin-top: 10px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #111;
-      font-weight: 500;
-      font-size: 16px;
+      display: none;
     }
 
     .hero {
       height: 90vh;
-      background-image: url('https://images.unsplash.com/photo-1611416457330-9aa09120c4e2?auto=format&fit=crop&w=1470&q=80');
+      background-image: url('https://www.midowatches.com/media/catalog/category/M026.629.11.041.00_2000x1000.jpg');
       background-size: cover;
       background-position: center;
       display: flex;
@@ -127,35 +129,27 @@
       text-align: center;
       padding: 30px 20px;
       margin-top: 60px;
-      position: relative;
-      z-index: 1;
     }
 
-    /* Estilos del carrito */
     .cart {
       position: fixed;
-      bottom: 100px; /* más abajo para que no tape el contacto */
+      top: 80px;
       right: 40px;
-      background-color: #000;
+      background-color: #222;
       color: #fff;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-radius: 20px;
-      font-weight: bold;
+      font-weight: 600;
+      font-size: 14px;
+      font-family: 'Poppins', sans-serif;
       cursor: pointer;
       z-index: 1000;
-      font-family: 'Poppins', sans-serif;
-      font-size: 16px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>PALMERA JOYAS</h1>
-    <nav>
-      <a href="#">Inicio</a>
-      <a href="#productos">Productos</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+  <header id="mainHeader">
+    <h1>DUZ JOYERÍA</h1>
   </header>
 
   <div class="cart" id="cartBtn">🛒 Carrito (0)</div>
@@ -169,21 +163,30 @@
   </section>
 
   <section class="products" id="productos">
-    <!-- productos aquí, igual que antes -->
-    <!-- ejemplo de producto: -->
     <div class="product">
-      <img src="https://images.unsplash.com/photo-1583001302150-d7ccf645e6f2?auto=format&fit=crop&w=1470&q=80" alt="PAPITA DORADITA" />
+      <img src="https://www.superaki.mx/cdn/shop/products/0000000000147.png?v=1634911468" alt="Papa ultra procesada">
       <div class="product-info">
-        <h3>PAPURRA DORADA</h3>
-        <p>TERRIBLE DISEÑO EN OROOO.</p>
+        <h3>Papa dorada </h3>
+        <p>PAPA DISEÑADA 10K.</p>
       </div>
     </div>
-    <!-- más productos -->
+    <!-- Aquí podés agregar más productos -->
   </section>
 
   <footer id="contacto">
-    <p>&copy; 2025 Palmera Joyas. Todos los derechos reservados.</p>
-    <p>Instagram: @palmerajoyas | WhatsApp: +54 9 1135679728</p>
+    <p>&copy; 2025 DUZ JOYERÍA. Todos los derechos reservados.</p>
+    <p>Instagram: @duzjoyeria | WhatsApp: +54 9 11 3567-9728</p>
   </footer>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('mainHeader');
+      if (window.scrollY > 100) {
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
+      }
+    });
+  </script>
 </body>
 </html>
