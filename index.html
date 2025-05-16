@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joyería Palmera</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #111;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #eee;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #111;
+      font-weight: 500;
+    }
+
+    .hero {
+      height: 90vh;
+      background-image: url('https://images.unsplash.com/photo-1611416457330-9aa09120c4e2?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 60px;
+    }
+
+    .hero-text {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 400px;
+    }
+
+    .hero-text h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero-text a {
+      text-decoration: none;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .products {
+      padding: 60px 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .product {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      background-color: #fff;
+    }
+
+    .product:hover {
+      transform: scale(1.03);
+    }
+
+    .product img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+    }
+
+    .product-info h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .product-info p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+
+    /* Estilos del carrito */
+    .cart {
+      position: fixed;
+      top: 20px;
+      right: 40px;
+      background-color: #000;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PALMERA JOYAS</h1>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <div class="cart" id="cartBtn">🛒 Carrito (0)</div>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Elegancia que perdura</h2>
+      <p>Descubrí nuestras piezas exclusivas diseñadas para destacar tu estilo.</p>
+      <a href="#productos">Ver colección</a>
+    </div>
+  </section>
+
+  <section class="products" id="productos">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1583001302150-d7ccf645e6f2?auto=format&fit=crop&w=1470&q=80" alt="Anillo de oro">
+      <div class="product-info">
+        <h3>Anillo Dorado</h3>
+        <p>Diseño fino en oro 18k.</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1625512062327-d4121d6618ff?auto=format&fit=crop&w=1470&q=80" alt="Collar elegante">
+      <div class="product-info">
+        <h3>Collar Perla Negra</h3>
+        <p>Perla natural y cadena de plata.</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1600180758890-7768d240ba63?auto=format&fit=crop&w=1470&q=80" alt="Aros de plata">
+      <div class="product-info">
+        <h3>Aros Luna</h3>
+        <p>Plata 925 con detalles brillantes.</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1470&q=80" alt="Pulsera dorada">
+      <div class="product-info">
+        <h3>Pulsera Clásica</h3>
+        <p>Elegancia dorada para todos los días.</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1622435227936-bc6f7fc64906?auto=format&fit=crop&w=1470&q=80" alt="Anillo con piedra">
+      <div class="product-info">
+        <h3>Anillo Esmeralda</h3>
+        <p>Piedra natural en engarce de lujo.</p>
+      </div>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1540986601707-3c1aa498c5b3?auto=format&fit=crop&w=1470&q=80" alt="Collar doble cadena">
+      <div class="product-info">
+        <h3>Collar Doble Cadena</h3>
+        <p>Estilo moderno y versátil.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contacto">
+    <p>&copy; 2025 Palmera Joyas. Todos los derechos reservados.</p>
+    <p>Instagram: @palmerajoyas | WhatsApp: +54 9 11 1234-5678</p>
+  </footer>
+</body>
+</html>
