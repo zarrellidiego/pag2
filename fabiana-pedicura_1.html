@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabiana Glielmi | Pedicura Profesional</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lila: #7c4fa0;
+    --lila-light: #b07cc8;
+    --lila-pale: #f0e8f7;
+    --lila-dark: #4a2266;
+    --cream: #faf7f4;
+    --text: #2a1a35;
+    --text-light: #7a6a85;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 247, 244, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(124, 79, 160, 0.1);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--lila-dark);
+    letter-spacing: 0.05em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--lila); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 40px 60px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-text { animation: fadeUp 1s ease forwards; }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lila);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--lila-dark);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--lila);
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--text-light);
+    max-width: 380px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--lila);
+    color: white;
+    text-decoration: none;
+    padding: 16px 32px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 50px;
+    transition: all 0.3s;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .hero-cta:hover {
+    background: var(--lila-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(124, 79, 160, 0.3);
+  }
+
+  .hero-visual {
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1.2s ease 0.5s forwards;
+  }
+
+  .hero-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 30px 80px rgba(124, 79, 160, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: var(--lila-pale);
+    border-radius: 50%;
+  }
+
+  .hero-card-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: block;
+    position: relative;
+  }
+
+  .hero-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--lila-dark);
+    margin-bottom: 8px;
+  }
+
+  .hero-card-sub {
+    font-size: 0.8rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--lila);
+    margin-bottom: 24px;
+  }
+
+  .hero-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    background: var(--lila-pale);
+    color: var(--lila-dark);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 300;
+  }
+
+  .floating-badge {
+    position: absolute;
+    bottom: -16px;
+    right: 32px;
+    background: var(--lila);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 16px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    box-shadow: 0 8px 24px rgba(124, 79, 160, 0.4);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--lila);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--lila-dark);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 36px 28px;
+    transition: all 0.4s;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--lila), var(--lila-light));
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(124, 79, 160, 0.12);
+    border-color: var(--lila-pale);
+  }
+
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--lila-dark);
+    margin-bottom: 10px;
+  }
+
+  .service-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  /* ABOUT */
+  .about {
+    background: var(--lila-dark);
+    padding: 100px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+
+  .about-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text .section-eyebrow { color: var(--lila-light); }
+
+  .about-text .section-title {
+    color: white;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+
+  .about-desc {
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 32px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .stat {
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--lila-light);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .feature {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    transition: all 0.3s;
+  }
+
+  .feature:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(6px);
+  }
+
+  .feature-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+  }
+
+  .feature-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .feature-text {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.6;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 100px 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact .section-title { margin-bottom: 16px; }
+
+  .contact-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-light);
+    margin-bottom: 48px;
+    line-height: 1.7;
+  }
+
+  .contact-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .contact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    text-decoration: none;
+    border: 1px solid var(--lila-pale);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(124, 79, 160, 0.15);
+    border-color: var(--lila-light);
+  }
+
+  .contact-card-icon { font-size: 2rem; }
+
+  .contact-card-label {
+    font-size: 0.7rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--lila);
+  }
+
+  .contact-card-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--lila-dark);
+  }
+
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 18px 40px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    border-radius: 50px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+  }
+
+  .whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(37, 211, 102, 0.4);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  footer span { color: var(--lila-light); }
+
+  /* DIVIDER */
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--lila-light);
+    margin: 20px auto;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* REVIEWS */
+  .reviews {
+    padding: 100px 0;
+    overflow: hidden;
+    background: white;
+  }
+
+  .reviews .section-header { padding: 0 40px; }
+
+  .rating-summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .rating-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--lila-dark);
+    line-height: 1;
+  }
+
+  .rating-count {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--text-light);
+  }
+
+  .reviews-track-wrapper {
+    margin-top: 48px;
+    overflow: hidden;
+  }
+
+  .reviews-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+    padding: 10px 20px;
+  }
+
+  .reviews-track:hover { animation-play-state: paused; }
+
+  .review-card {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 28px;
+    width: 300px;
+    flex-shrink: 0;
+    border: 1px solid rgba(124, 79, 160, 0.08);
+    transition: all 0.3s;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(124, 79, 160, 0.1);
+    border-color: var(--lila-pale);
+  }
+
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--lila), var(--lila-light));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .review-stars { font-size: 0.7rem; }
+
+  .review-text {
+    font-size: 0.82rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; padding: 100px 20px 60px; }
+    .hero-visual { display: none; }
+    .services { padding: 60px 20px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .about { padding: 60px 20px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; }
+    .contact { padding: 60px 20px; }
+    .contact-cards { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Fabiana · Pedicura</div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Sobre mí</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Pedicura Profesional · Parque Avellaneda</p>
+    <h1 class="hero-title">
+      El cuidado que<br>tus pies <em>merecen</em>
+    </h1>
+    <p class="hero-desc">
+      Atención especializada en salud del pie con años de experiencia. 
+      Servicio en gabinete o a domicilio, adaptado a tus necesidades.
+    </p>
+    <a href="https://wa.me/5491169472294" class="hero-cta" target="_blank">
+      💬 Reservar turno
+    </a>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <span class="hero-card-icon">🌸</span>
+      <div class="hero-card-name">Fabiana Glielmi</div>
+      <div class="hero-card-sub">Pedicura Profesional</div>
+      <div class="hero-card-tags">
+        <span class="tag">Pedicuría</span>
+        <span class="tag">Manicura</span>
+        <span class="tag">Reflexología</span>
+        <span class="tag">Pie Diabético</span>
+        <span class="tag">Domicilio</span>
+      </div>
+      <div class="floating-badge">📍 Parque Avellaneda</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="servicios">
+  <div class="section-header">
+    <p class="section-eyebrow">Lo que ofrezco</p>
+    <h2 class="section-title">Mis servicios</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">💅</span>
+      <div class="service-name">Pedicuría</div>
+      <p class="service-desc">Tratamiento completo del pie: corte, limado, cutículas y esmaltado con productos de primera calidad.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">✋</span>
+      <div class="service-name">Manicura</div>
+      <p class="service-desc">Cuidado profesional de manos, cutículas y uñas. Esmaltado clásico y semipermanente.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🦶</span>
+      <div class="service-name">Reflexología</div>
+      <p class="service-desc">Técnica terapéutica que estimula puntos del pie para mejorar la salud general del organismo.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔬</span>
+      <div class="service-name">Queratosis</div>
+      <p class="service-desc">Tratamiento específico para la queratosis, durezas y callos con técnicas especializadas.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🩺</span>
+      <div class="service-name">Pie Diabético</div>
+      <p class="service-desc">Atención especializada para personas con diabetes, con el cuidado y la delicadeza que requiere.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏡</span>
+      <div class="service-name">A Domicilio</div>
+      <p class="service-desc">Todos los servicios disponibles en la comodidad de tu hogar. Consultar disponibilidad y zona.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="nosotros">
+  <div class="about-inner">
+    <div class="about-text">
+      <p class="section-eyebrow">Sobre mí</p>
+      <h2 class="section-title" style="text-align:left">Profesional con <em style="color:var(--lila-light)">dedicación</em></h2>
+      <p class="about-desc">
+        Soy Fabiana Glielmi, pedicura profesional con base en Parque Avellaneda. 
+        Me especializo en el cuidado integral del pie, brindando atención personalizada 
+        tanto en mi gabinete como a domicilio. Mi prioridad es tu salud y bienestar.
+      </p>
+      <div class="about-stats">
+        <div class="stat">
+          <div class="stat-number">100+</div>
+          <div class="stat-label">Publicaciones</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">168</div>
+          <div class="stat-label">Seguidores</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-features">
+      <div class="feature">
+        <span class="feature-icon">⭐</span>
+        <div>
+          <div class="feature-title">Atención personalizada</div>
+          <p class="feature-text">Cada cliente recibe una atención única y adaptada a sus necesidades específicas.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🏠</span>
+        <div>
+          <div class="feature-title">Gabinete y domicilio</div>
+          <p class="feature-text">Podés elegir venir al gabinete o recibir el servicio en la comodidad de tu casa.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🩺</span>
+        <div>
+          <div class="feature-title">Especialización médica</div>
+          <p class="feature-text">Capacitada en pie diabético y patologías específicas que requieren cuidados especiales.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews">
+  <div class="section-header">
+    <p class="section-eyebrow">Lo que dicen mis clientes</p>
+    <h2 class="section-title">Reseñas reales de Google</h2>
+    <div class="divider"></div>
+    <div class="rating-summary">
+      <span class="rating-number">5.0</span>
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <span class="rating-count">28 reseñas en Google</span>
+    </div>
+  </div>
+  <div class="reviews-track-wrapper">
+    <div class="reviews-track">
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">IL</div>
+          <div><div class="reviewer-name">Ileana Segovia</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Fabi sos una excelente y gran profesional pero sobre todo sos una persona cálida y muy cercana. Mis pies y manos quedaron increíbles."</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">LC</div>
+          <div><div class="reviewer-name">Lorena Cajal</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Excelente profesional, super recomendable, lugar lindo y Fabiana te hace sentir muy cómoda. Gracias volveré pronto!"</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">AG</div>
+          <div><div class="reviewer-name">Angela García</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Gracias Faby por tu maravilloso trabajo, mis pies quedaron hermosos! Recomendable 💯 excelente profesional, sin duda volveré."</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">DA</div>
+          <div><div class="reviewer-name">Diego Albarado</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Excelente experiencia, Fabi es un amor. El lugar súper lindo y 100% recomendado! Me dejó el pie como nuevo."</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">SC</div>
+          <div><div class="reviewer-name">Sofia Castaño</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Fabi es increíblemente profesional y cálida. Me hizo sentir cuidada, y me dejó los pies super suaves. ¡No se van a arrepentir! 💖"</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">GC</div>
+          <div><div class="reviewer-name">Gustavo Castaño</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Gracias por tu excelente trabajo. Siempre me habían hecho doler pero tus manos son de seda. Volveré pronto."</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">CS</div>
+          <div><div class="reviewer-name">Claudia Staciuk</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"La mejor!!! Atiende mis pies y manos como nadie hace años!!! Excelente atención!! Gran profesional y persona!!"</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">IC</div>
+          <div><div class="reviewer-name">Ignacio Cairola</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Fabi es una genia y la rompe. La atención fue excelente y me resolvió el problema rapidísimo."</p>
+      </div>
+      <!-- Duplicados para el loop infinito -->
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">IL</div>
+          <div><div class="reviewer-name">Ileana Segovia</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Fabi sos una excelente y gran profesional pero sobre todo sos una persona cálida y muy cercana. Mis pies y manos quedaron increíbles."</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">LC</div>
+          <div><div class="reviewer-name">Lorena Cajal</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Excelente profesional, super recomendable, lugar lindo y Fabiana te hace sentir muy cómoda. Gracias volveré pronto!"</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">SC</div>
+          <div><div class="reviewer-name">Sofia Castaño</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"Fabi es increíblemente profesional y cálida. Me hizo sentir cuidada, y me dejó los pies super suaves. ¡No se van a arrepentir! 💖"</p>
+      </div>
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-avatar">CS</div>
+          <div><div class="reviewer-name">Claudia Staciuk</div><div class="review-stars">⭐⭐⭐⭐⭐</div></div>
+        </div>
+        <p class="review-text">"La mejor!!! Atiende mis pies y manos como nadie hace años!!! Excelente atención!! Gran profesional y persona!!"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <p class="section-eyebrow">Contacto</p>
+  <h2 class="section-title">¿Querés reservar un turno?</h2>
+  <div class="divider"></div>
+  <p class="contact-sub">
+    Escribime por WhatsApp o Instagram y te respondo a la brevedad.<br>
+    Atención en Parque Avellaneda y a domicilio.
+  </p>
+  <div class="contact-cards">
+    <a href="https://wa.me/5491169472294" class="contact-card" target="_blank">
+      <span class="contact-card-icon">📱</span>
+      <span class="contact-card-label">WhatsApp</span>
+      <span class="contact-card-value">+54 9 11 6947-2294</span>
+    </a>
+    <a href="https://www.instagram.com/pedicura.fabi/" class="contact-card" target="_blank">
+      <span class="contact-card-icon">📸</span>
+      <span class="contact-card-label">Instagram</span>
+      <span class="contact-card-value">@pedicura.fabi</span>
+    </a>
+  </div>
+  <a href="https://wa.me/5491169472294?text=Hola%20Fabiana!%20Quisiera%20reservar%20un%20turno." class="whatsapp-btn" target="_blank">
+    💬 Reservar turno por WhatsApp
+  </a>
+</section>
+
+<footer>
+  <p>© 2024 <span>Fabiana Glielmi · Pedicura Profesional</span> · Parque Avellaneda, Buenos Aires</p>
+</footer>
+
+</body>
+</html>
